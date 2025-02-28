@@ -3,15 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Podman Desktop Tutorial documentation
-=====================================
+Podman Desktop Tutorial
+=======================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+`Podman <https://podman.io/>`_ is an open source container management tool similar to `Docker <https://www.docker.com/>`_. 
 
+============= ================== ==================
+Feature       Podman             Docker
+============= ================== ==================
+License (CLI) Apache License 2.0 Apache License 2.0
+Cost (CLI)    Free               Free
+License (GUI) Apache License 2.0 Proprietary
+Cost (GUI)    Free               US$9/user/month
+============= ================== ==================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   install
