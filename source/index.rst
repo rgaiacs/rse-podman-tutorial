@@ -23,3 +23,4 @@ Cost (GUI)    Free               US$9/user/month
 
    install
    concepts
+   k8s-manifests
