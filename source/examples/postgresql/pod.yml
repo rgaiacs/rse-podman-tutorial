@@ -1,0 +1,33 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-5.3.1
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.kubernetes.cri-o.SandboxID/db-podified: 28eb8d21520c04f099eba8c7ebbf533a2dbec59ccf01e77683544b9e87ad497f
+  creationTimestamp: "2025-02-28T20:07:19Z"
+  labels:
+    app: postgresql
+  name: postgresql
+spec:
+  containers:
+  - args:
+    - postgres
+    env:
+    - name: POSTGRES_DB
+      value: gesis
+    - name: POSTGRES_PASSWORD
+      value: "123"
+    - name: POSTGRES_USER
+      value: gesis
+    image: docker.io/library/postgres:17.4-alpine3.21
+    name: db
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: db-data-pvc
+  volumes:
+  - name: db-data-pvc
+    persistentVolumeClaim:
+      claimName: db-data

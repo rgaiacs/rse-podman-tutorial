@@ -34,7 +34,7 @@ Given the following Kubernetes manifest file
 .. literalinclude:: examples/nginx/pod.yml
    :language: yaml
 
-Run ::
+Running ::
 
     podman kube play examples/nginx/pod.yml
 
