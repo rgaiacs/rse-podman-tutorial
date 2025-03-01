@@ -11,14 +11,8 @@ Containers might need access to persistent data (for example configuration files
 - `PersistentVolumeClaimVolumeSource <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#persistentvolumeclaimvolumesource-v1-core>`_
 - `SecretVolumeSource <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#secretvolumesource-v1-core>`_
 
-Load User Files
----------------
-
-Example
-^^^^^^^
-
-Write to Persistent Files
--------------------------
+Configuration Files
+-------------------
 
 Example
 ^^^^^^^
@@ -28,7 +22,24 @@ Given the following Kubernetes manifest file
 .. literalinclude:: examples/postgresql/pod.yml
    :language: yaml
 
-Running ::
+running ::
+
+    podman kube play examples/postgresql/pod.yml
+
+creates a pod named ``postgresql`` with a container named ``db`` running the image ``docker.io/library/postgres:17.4-alpine3.21`` with a volume mounted.
+
+State Files
+-----------
+
+Example
+^^^^^^^
+
+Given the following Kubernetes manifest file
+
+.. literalinclude:: examples/postgresql/pod.yml
+   :language: yaml
+
+running ::
 
     podman kube play examples/postgresql/pod.yml
 

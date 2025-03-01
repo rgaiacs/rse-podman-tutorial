@@ -5,9 +5,6 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    io.kubernetes.cri-o.SandboxID/db-podified: 28eb8d21520c04f099eba8c7ebbf533a2dbec59ccf01e77683544b9e87ad497f
-  creationTimestamp: "2025-02-28T20:07:19Z"
   labels:
     app: postgresql
   name: postgresql
