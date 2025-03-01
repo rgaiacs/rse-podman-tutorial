@@ -1,0 +1,51 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-5.3.1
+
+# NOTE: If you generated this yaml from an unprivileged and rootless podman container on an SELinux
+# enabled system, check the podman generate kube man page for steps to follow to ensure that your pod/container
+# has the right permissions to access the volumes added.
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: html
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <h1>Hello!</h1>
+        </body>
+    </html>  
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nginx3
+  name: nginx3
+spec:
+  containers:
+  - args:
+    - nginx
+    - -g
+    - daemon off;
+    image: docker.io/library/nginx:alpine
+    name: nginx3
+    ports:
+    - containerPort: 80
+      hostPort: 8080
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: nginx-html
+  volumes:
+  - configMap:
+      # Provide the name of the ConfigMap you want to mount.
+      name: html
+      # An array of keys from the ConfigMap to create as files
+      items:
+      - key: "index.html"
+        path: "index.html"
+    name: nginx-html
