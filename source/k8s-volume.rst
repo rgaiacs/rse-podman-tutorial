@@ -25,7 +25,7 @@ Example with HostPathVolumeSource
 
 .. WARNING::
 
-    Podman is not able to access files in a WSL2 machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. `This feature was requested in Podman's GitHub project. <https://github.com/containers/podman/issues/17986>`_
+    Podman is not able to access files in a WSL2 machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. This feature was requested in Podman's GitHub project issue `17986 <https://github.com/containers/podman/issues/17986>`_ and `21813 <https://github.com/containers/podman/issues/21813>`_.
 
 .. ATTENTION::
 
@@ -89,16 +89,40 @@ that is expected to return ::
 State Files
 -----------
 
-Example
-^^^^^^^
+This files are, generaly, write by the container. ``PersistentVolumeClaimVolumeSource`` is the preferable option here. ``HostPathVolumeSource`` is also an option can cause problems due file permissions differences with host.
+
+Example with HostPathVolumeSource
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. WARNING::
+
+    Podman is not able to access files in a WSL2 machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. This feature was requested in Podman's GitHub project issue `17986 <https://github.com/containers/podman/issues/17986>`_ and `21813 <https://github.com/containers/podman/issues/21813>`_.
+
+.. ATTENTION::
+
+    This example does **NOT** work out of the box because the host machines must have the directory to be bind to the container.
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/postgresql/pod.yml
+.. literalinclude:: examples/postgresql0/pod.yml
    :language: yaml
 
 running ::
 
-    podman kube play examples/postgresql/pod.yml
+    podman kube play examples/postgresql0/pod.yml
+
+creates a pod named ``postgresql`` with a container named ``db`` running the image ``docker.io/library/postgres:17.4-alpine3.21`` with a volume mounted.
+
+Example with PersistentVolumeClaimVolumeSource
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Given the following Kubernetes manifest file
+
+.. literalinclude:: examples/postgresql1/pod.yml
+   :language: yaml
+
+running ::
+
+    podman kube play examples/postgresql1/pod.yml
 
 creates a pod named ``postgresql`` with a container named ``db`` running the image ``docker.io/library/postgres:17.4-alpine3.21`` with a volume mounted.
