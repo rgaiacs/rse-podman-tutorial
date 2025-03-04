@@ -1,0 +1,35 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: sphinx-podman-desktop
+  name: sphinx-podman-desktop
+spec:
+  containers:
+    - command:
+        - sphinx-autobuild
+        - --host
+        - 0.0.0.0
+        - /mnt/docs/source
+        - /mnt/docs/build
+      image: docker-private.gesis.intra/rse/docker/images/sphinx-doc:2.3.0
+      name: sphinx
+      ports:
+        - containerPort: 8000
+          hostPort: 8000
+      volumeMounts:
+        - mountPath: /mnt/docs
+          name: docs
+        - mountPath: /mnt/docs/build
+          name: build
+  volumes:
+    - hostPath:
+        # This is the path in the host machine running Kubernetes or Podman.
+        # When using WSL2, the Windows C disk is mounted into /mnt/c.
+        path: ./
+        type: Directory
+      name: docs
+    - emptyDir:
+        sizeLimit: 100Mi
+      name: build
