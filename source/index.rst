@@ -8,14 +8,15 @@ Podman Desktop Tutorial
 
 `Podman <https://podman.io/>`_ is an open source container management tool similar to `Docker Engine <https://docs.docker.com/engine/>`_. And `Podman Desktop <https://podman-desktop.io/>`_ is open source client for Podman similar to `Docker Desktop <https://www.docker.com/products/docker-desktop/>`_.
 
-============= ================== ==================
-Feature       Podman             Docker
-============= ================== ==================
-License (CLI) Apache License 2.0 Apache License 2.0
-Cost (CLI)    Free               Free
-License (GUI) Apache License 2.0 Proprietary
-Cost (GUI)    Free               US$9/user/month
-============= ================== ==================
+============================== =================================== ======================================
+Feature                        Podman                              Docker
+============================== =================================== ======================================
+License (CLI)                  Apache License 2.0                  Apache License 2.0
+Cost (CLI)                     Free                                Free
+License (GUI)                  Apache License 2.0                  Proprietary
+Cost (GUI)                     Free                                US$9/user/month
+Multi-container applications   Based on Kubernetes specification   Based on Docker Compose specification
+============================== =================================== ======================================
 
 .. toctree::
    :maxdepth: 2
