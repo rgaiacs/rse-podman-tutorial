@@ -23,11 +23,6 @@ Configure Remote Access
 
     systemctl status --user podman.socket
 
-6. On Windows, add the connection to the remote Podman [podman-remote-windows]_. ::
+6. On Windows, add the connection to the remote Podman as described in `Podman Remote clients for macOS and Windows <https://github.com/containers/podman/blob/main/docs/tutorials/mac_win_client.md>`_. ::
 
     podman system connection add baude --identity c:\Users\baude\.ssh\id_rsa ssh://192.168.122.1/run/user/1000/podman/podman.sock
-
-References
-----------
-
-.. [podman-remote-windows] `Podman Remote clients for macOS and Windows <https://github.com/containers/podman/blob/main/docs/tutorials/mac_win_client.md>`_
