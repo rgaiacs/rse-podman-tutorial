@@ -26,6 +26,7 @@ Multi-container applications   Based on Kubernetes specification   Based on Dock
 
    install
    concepts
+   image-pull
    image-build
    k8s-manifests
    k8s-ports
