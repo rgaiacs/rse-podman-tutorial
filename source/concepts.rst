@@ -1,12 +1,45 @@
 Concepts
 ========
 
+This concepts are related with the tabs on the left side of Podman Desktop.
+
+.. image:: ./img/podman-desktop-dashboard.png
+   :alt: Screenshot of Podman Desktop with the Dashboard tab selected.
+
+Container Image
+---------------
+
+A container image is defined in `"A Practical Introduction to Container Terminology" by Scott McCarty <https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction>`_ as
+
+    A container image [...] is a file which is pulled down from a Registry Server and used locally as a mount point when starting Containers.
+
+Registry Server
+---------------
+
+A registry server is defined in `"A Practical Introduction to Container Terminology" by Scott McCarty <https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction>`_ as
+
+    A registry server is essentially a fancy file server that is used to store [...] repositories.
+
+Container
+--------- 
+
+A container image is defined in the `"A Practical Introduction to Container Terminology" by Scott McCarty <https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction>`_ as
+
+    A container is the runtime instantiation of a Container Image. A container is a standard Linux process [...]
+
+Volume
+------
+
+A volume is defined in the `Kubernetes documentation <https://kubernetes.io/docs/concepts/storage/volumes/>`_ as
+
+    a way for containers [...] to access and share data via the filesystem.
+
 Pod
 ---
 
 A pod is defined in the `Kubernetes documentation <https://kubernetes.io/docs/concepts/workloads/pods/>`_ as
 
-> A Pod (as in a pod of whales or pea pod) is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers.
+    A Pod (as in a pod of whales or pea pod) is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers.
 
 Create a pod by running ::
 
