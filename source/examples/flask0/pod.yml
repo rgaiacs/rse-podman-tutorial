@@ -1,0 +1,32 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-5.3.1
+
+# NOTE: If you generated this yaml from an unprivileged and rootless podman container on an SELinux
+# enabled system, check the podman generate kube man page for steps to follow to ensure that your pod/container
+# has the right permissions to access the volumes added.
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: flask
+  name: flask
+spec:
+  containers:
+  - image: my-tutorial/my-flask-app:dev
+    name: flask
+    ports:
+    - containerPort: 5000
+      hostPort: 5000
+    volumeMounts:
+    - mountPath: /var/app
+      name: flask-src
+  volumes:
+  - hostPath:
+      # This is the path in the host machine running Kubernetes or Podman.
+      # When using WSL2, the Windows C disk is mounted into /mnt/c.
+      path: ./src
+      type: Directory
+    name: flask-src
