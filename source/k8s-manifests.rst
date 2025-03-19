@@ -3,9 +3,9 @@ Kubernetes Manifest Files
 
 A Kubernetes manifest file is, as defined on `Glossary of Kubernetes' official documentation <https://kubernetes.io/docs/reference/glossary>`_,
 
-> Specification of a Kubernetes API object in JSON or YAML format.
->
-> A manifest specifies the desired state of an object that Kubernetes will maintain when you apply the manifest. For YAML format, each file can contain multiple manifests.
+    Specification of a Kubernetes API object in JSON or YAML format.
+
+    A manifest specifies the desired state of an object that Kubernetes will maintain when you apply the manifest. For YAML format, each file can contain multiple manifests.
 
 Podman uses Kubernetes manifest files as a way to describe pods. This Kubernetes manifests files can be used for efficient development and deployment experience.
 
@@ -26,16 +26,21 @@ Given a Kubernetes manifest file that describes a pod, the pod can be created by
 
     podman kube play file.yml
 
+.. note::
+
+    We will name the Kubernetes manifest file used by Podman as ``play.yml`` in the rest of this tutorial.
+
 Example
--------
+^^^^^^^
 
 Given the following Kubernetes manifest file
 
 .. literalinclude:: examples/nginx0/play.yml
    :language: yaml
+   :caption: play.yml
 
-Running ::
+running ::
 
-    podman kube play examples/nginx0/play.yml
+    podman kube play play.yml
 
 creates a pod named ``nginx0`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine``.

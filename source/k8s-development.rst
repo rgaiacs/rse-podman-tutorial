@@ -20,7 +20,7 @@ Workflow
 4. Delete and recreate the pod as described in :doc:`k8s-volume`.
 
 Example
--------
+^^^^^^^
 
 .. imporant::
 
@@ -30,8 +30,9 @@ Given the following ``Dockerfile``
 
 .. literalinclude:: examples/flask0/Dockerfile
    :language: dockerfile
+   :caption: Dockerfile
 
-Running ::
+running ::
 
     podman build \
     --tag my-tutorial/my-flask-app:dev \
@@ -43,6 +44,7 @@ Given the following Kubernetes manifest file
 
 .. literalinclude:: examples/flask0/play.yml
    :language: yaml
+   :caption: play.yml
 
 running ::
 
@@ -52,12 +54,13 @@ creates a pod named ``flask`` with a container named ``flask`` running the image
 
 `http://localhost:5000/ <http://localhost:5000/>`_ should show
 
-> No module named 'requests'
+    No module named 'requests'
 
-The ``Dockerfile`` can be modified to provide the library ``requests``
+The ``Dockerfile`` can be modified to provide the library ``requests`` like in
 
 .. literalinclude:: examples/flask1/Dockerfile
    :language: dockerfile
+   :diff: examples/flask0/Dockerfile
 
 Running ::
 
@@ -71,7 +74,11 @@ And running ::
 
     podman kube play --replace ./play.yml
 
-replaces the pod named ``flask`` with a container named ``flask`` running the image ``my-tutorial/my-flask-app:dev``, now with the library ``requests`` installed, with a volume mounted.
+replaces the pod named ``flask`` with a container named ``flask`` running the **new** image ``my-tutorial/my-flask-app:dev``, now with the library ``requests`` installed, with a volume mounted.
+
+`http://localhost:5000/ <http://localhost:5000/>`_ should show
+
+    Hello, World! Let's read ...
 
 Project Structure
 -----------------

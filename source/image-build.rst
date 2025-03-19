@@ -43,7 +43,7 @@ Container image can also be created from the command line. ::
         it is the directory where the ``Dockerfile`` is located.
 
 Example
--------
+^^^^^^^
 
 Given the following ``Dockerfile``
 
