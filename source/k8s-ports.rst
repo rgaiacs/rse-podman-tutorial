@@ -8,12 +8,12 @@ Example
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/nginx1/pod.yml
+.. literalinclude:: examples/nginx1/play.yml
    :language: yaml
 
 running ::
 
-    podman kube play examples/nginx1/pod.yml
+    podman kube play examples/nginx1/play.yml
 
 creates a pod named ``nginx1`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine`` and the port 8080 in the host is mapped to the port 80 in the container.
 

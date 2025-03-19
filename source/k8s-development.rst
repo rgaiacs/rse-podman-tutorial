@@ -41,12 +41,12 @@ creates a container image named ``my-tutorial/my-flask-app:dev`` that has Flask 
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/flask0/pod.yml
+.. literalinclude:: examples/flask0/play.yml
    :language: yaml
 
 running ::
 
-    podman kube play ./pod.yml
+    podman kube play ./play.yml
 
 creates a pod named ``flask`` with a container named ``flask`` running the image ``my-tutorial/my-flask-app:dev`` with a volume mounted.
 
@@ -69,7 +69,7 @@ replaces the container image named ``my-tutorial/my-flask-app:dev`` with a new c
 
 And running ::
 
-    podman kube play --replace ./pod.yml
+    podman kube play --replace ./play.yml
 
 replaces the pod named ``flask`` with a container named ``flask`` running the image ``my-tutorial/my-flask-app:dev``, now with the library ``requests`` installed, with a volume mounted.
 

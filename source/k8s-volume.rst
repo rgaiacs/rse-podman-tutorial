@@ -33,12 +33,12 @@ Example with HostPathVolumeSource
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/nginx2/pod.yml
+.. literalinclude:: examples/nginx2/play.yml
    :language: yaml
 
 running ::
 
-    podman kube play examples/nginx2/pod.yml
+    podman kube play examples/nginx2/play.yml
 
 creates a pod named ``nginx2`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine`` and the port 8080 in the host is mapped to the port 80 in the container.
 
@@ -64,12 +64,12 @@ Example with ConfigMapVolumeSource
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/nginx3/pod.yml
+.. literalinclude:: examples/nginx3/play.yml
    :language: yaml
 
 running ::
 
-    podman kube play examples/nginx3/pod.yml
+    podman kube play examples/nginx3/play.yml
 
 creates a pod named ``nginx3`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine`` and the port 8080 in the host is mapped to the port 80 in the container.
 
@@ -104,12 +104,12 @@ Example with HostPathVolumeSource
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/postgresql0/pod.yml
+.. literalinclude:: examples/postgresql0/play.yml
    :language: yaml
 
 running ::
 
-    podman kube play examples/postgresql0/pod.yml
+    podman kube play examples/postgresql0/play.yml
 
 creates a pod named ``postgresql`` with a container named ``db`` running the image ``docker.io/library/postgres:17.4-alpine3.21`` with a volume mounted.
 
@@ -118,11 +118,11 @@ Example with PersistentVolumeClaimVolumeSource
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/postgresql1/pod.yml
+.. literalinclude:: examples/postgresql1/play.yml
    :language: yaml
 
 running ::
 
-    podman kube play examples/postgresql1/pod.yml
+    podman kube play examples/postgresql1/play.yml
 
 creates a pod named ``postgresql`` with a container named ``db`` running the image ``docker.io/library/postgres:17.4-alpine3.21`` with a volume mounted.

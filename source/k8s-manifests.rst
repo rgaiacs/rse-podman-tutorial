@@ -31,11 +31,11 @@ Example
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/nginx0/pod.yml
+.. literalinclude:: examples/nginx0/play.yml
    :language: yaml
 
 Running ::
 
-    podman kube play examples/nginx0/pod.yml
+    podman kube play examples/nginx0/play.yml
 
 creates a pod named ``nginx0`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine``.
