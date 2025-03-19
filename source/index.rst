@@ -32,3 +32,6 @@ Multi-container applications   Based on Kubernetes specification   Based on Dock
    k8s-ports
    k8s-volume
    k8s-development
+   production-with-podman
+   production-with-k3s
+   portainer
