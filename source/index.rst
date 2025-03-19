@@ -8,6 +8,8 @@ Podman Desktop Tutorial
 
 `Podman <https://podman.io/>`_ is an open source container management tool similar to `Docker Engine <https://docs.docker.com/engine/>`_. And `Podman Desktop <https://podman-desktop.io/>`_ is open source client for Podman similar to `Docker Desktop <https://www.docker.com/products/docker-desktop/>`_.
 
+This tutorial will guide you on how to use Podman and Podman Desktop.
+
 ============================== =================================== ======================================
 Feature                        Podman                              Docker
 ============================== =================================== ======================================
