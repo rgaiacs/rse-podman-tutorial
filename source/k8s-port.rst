@@ -1,6 +1,27 @@
 Pod and Port
 ============
 
+Normally, we want to access the program running on the container.
+
+.. mermaid::
+   :align: center
+   :alt: Diagram of access container.
+   :caption: Diagram of access container.
+   
+    graph LR;
+        browser[Web browser] --> flask[Flask];
+
+        subgraph pod[Pod]
+        flask
+        end
+
+        subgraph host[Host]
+        browser
+        end
+
+
+
+
 The container can expose some ports (for example, the port 80 to receive HTTP requests) and the pod can map a port in the host to a port in the container.
 
 Example
