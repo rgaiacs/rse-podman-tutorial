@@ -1,7 +1,7 @@
 Production with Podman
 ======================
 
-In the GNU/Linux world, the way to manage the GNU/Linux system and services running on it is using [systemd](https://systemd.io/). For example, the cron job scheduler in your machine is probably configured using systemd. ::
+In the GNU/Linux world, the way to manage the GNU/Linux system and services running on it is using `systemd <https://systemd.io/>`_. For example, the cron job scheduler in your machine is probably configured using systemd. ::
 
     sudo systemctl status cron
 
