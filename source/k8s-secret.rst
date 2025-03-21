@@ -62,7 +62,7 @@ creates a Secret named ``html``.
 
 Given the following Kubernetes manifest file
 
-.. literalinclude:: examples/ginx-secret0/play.yml
+.. literalinclude:: examples/nginx-secret0/play.yml
    :language: yaml
    :caption: play.yml
 
