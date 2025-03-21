@@ -30,14 +30,14 @@ A container image is defined in the `"A Practical Introduction to Container Term
 Volume
 ------
 
-A volume is defined in the `Kubernetes documentation <https://kubernetes.io/docs/concepts/storage/volumes/>`_ as
+`A volume is defined in the Kubernetes documentation <https://kubernetes.io/docs/concepts/storage/volumes/>`_ as
 
     a way for containers [...] to access and share data via the filesystem.
 
 Pod
 ---
 
-A pod is defined in the `Kubernetes documentation <https://kubernetes.io/docs/concepts/workloads/pods/>`_ as
+`A pod is defined in the Kubernetes documentation <https://kubernetes.io/docs/concepts/workloads/pods/>`_ as
 
     A Pod (as in a pod of whales or pea pod) is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers.
 
