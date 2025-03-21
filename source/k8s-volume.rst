@@ -91,7 +91,7 @@ that is expected to return ::
 State Files
 -----------
 
-This files are, generaly, write by the container. ``PersistentVolumeClaimVolumeSource`` is the preferable option here. ``HostPathVolumeSource`` is also an option can cause problems due file permissions differences with host.
+This files are, generaly, write by the container. ``PersistentVolumeClaimVolumeSource`` is the preferable option here. ``HostPathVolumeSource`` is also an option but can cause problems due file permissions differences with host.
 
 Example with HostPathVolumeSource
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
