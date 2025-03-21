@@ -1,7 +1,7 @@
 Pod with Volume
 ===============
 
-Containers might need access to persistent data (for example configuration files, state files, and log files) at their start or after their termination. This can be accomplished by mounting a volume to the container. Volumes can be of many types, including
+Containers might need access to persistent data (for example configuration files, state files, and log files) at their start or after their termination. This can be accomplished by mounting a Volume to the container. Volumes can be of many types, including
 
 - `ConfigMapVolumeSource <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#configmapvolumesource-v1-core>`_
 - `EmptyDirVolumeSource <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#emptydirvolumesource-v1-core>`_
@@ -14,7 +14,7 @@ Containers might need access to persistent data (for example configuration files
 Configuration Files
 -------------------
 
-This files are **read only**. ``SecretVolumeSource`` must be used for sensitive information, for example passwords. ``ConfigMapVolumeSource`` is the preferable option for non-sensitive information. ``HostPathVolumeSource`` is also an option for non-sensitive information but can cause problems due file permissions differences with host.
+This files are **read only**. ``SecretVolumeSource`` must be used for sensitive information, for example passwords, and are detailed in :doc:`k8s-secret`. ``ConfigMapVolumeSource`` is the preferable option for non-sensitive information. ``HostPathVolumeSource`` is also an option for non-sensitive information but can cause problems due file permissions differences with host.
 
 .. TIP::
 
