@@ -32,8 +32,8 @@ Multi-container applications   Based on Kubernetes specification   Based on Dock
    concepts
    image-pull
    image-build
-   k8s-manifests
-   k8s-ports
+   k8s-manifest
+   k8s-port
    k8s-volume
    k8s-development
    production-with-podman

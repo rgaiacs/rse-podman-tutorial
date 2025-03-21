@@ -1,5 +1,5 @@
-Kubernetes Manifest Files
-=========================
+Kubernetes Manifest File
+========================
 
 A Kubernetes manifest file is, as defined on `Glossary of Kubernetes' official documentation <https://kubernetes.io/docs/reference/glossary>`_,
 

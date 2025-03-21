@@ -1,5 +1,5 @@
-Pod and Ports
-=============
+Pod and Port
+============
 
 The container can expose some ports (for example, the port 80 to receive HTTP requests) and the pod can map a port in the host to a port in the container.
 
