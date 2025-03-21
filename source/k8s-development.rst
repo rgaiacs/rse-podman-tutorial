@@ -22,7 +22,7 @@ Workflow
 Example
 ^^^^^^^
 
-.. imporant::
+.. important::
 
     The commands are run from the root of the project.
 
