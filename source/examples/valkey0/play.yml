@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-entrypoint
+data:
+  entrypoint.sh: |
+    valkey-cli set counter 0
+    while [ -z "" ]
+    do
+      valkey-cli incr counter
+      sleep 5s
+    done
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: valkey
+  name: valkey0
+spec:
+  containers:
+    - name: server
+      image: docker.io/valkey/valkey:8.0.2-alpine
+    - name: client
+      image: docker.io/valkey/valkey:8.0.2-alpine
+      command:
+        - /bin/sh
+        - /opt/entrypoint.sh
+      volumeMounts:
+        - mountPath: /opt
+          name: client-entrypoint-volume
+  volumes:
+    - configMap:
+        name: client-entrypoint
+        items:
+          - key: "entrypoint.sh"
+            path: "entrypoint.sh"
+      name: client-entrypoint-volume
