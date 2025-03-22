@@ -1,7 +1,7 @@
 Pod and Port
 ============
 
-Normally, we want to access the program running on the container.
+Normally, we want to access the program running on the container from the host.
 
 .. mermaid::
    :align: center
@@ -19,10 +19,11 @@ Normally, we want to access the program running on the container.
         browser
         end
 
+The container can expose some ports (for example, the port 80 to receive HTTP requests) and the exposed port can be mapped to a port in the host. This way, a request to the port in the host is passed to the container.
 
+.. important::
 
-
-The container can expose some ports (for example, the port 80 to receive HTTP requests) and the pod can map a port in the host to a port in the container.
+    Because Podman run rootless, the host's privileged ports (TCP/IP port numbers below 1024) can not be used.
 
 Example
 -------
