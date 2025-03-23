@@ -4,10 +4,10 @@ metadata:
   name: client-entrypoint
 data:
   entrypoint.sh: |
-    valkey-cli -h server set counter 0
+    valkey-cli -h valkey1-server set counter 0
     while [ -z "" ]
     do
-      valkey-cli -h server incr counter
+      valkey-cli -h valkey1-server incr counter
       sleep 5s
     done
 ---
@@ -16,11 +16,20 @@ kind: Pod
 metadata:
   labels:
     app: valkey
-  name: valkey0
+  name: valkey1-server
 spec:
   containers:
     - name: server
       image: docker.io/valkey/valkey:8.0.2-alpine
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: valkey
+  name: valkey1-client
+spec:
+  containers:
     - name: client
       image: docker.io/valkey/valkey:8.0.2-alpine
       command:
