@@ -41,22 +41,30 @@ Pod
 
     A Pod (as in a pod of whales or pea pod) is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers.
 
-Create a pod by running ::
+Create a pod by running
+
+.. code:: bash
 
     podman pod create pod-name
 
-Start the pod by running ::
+Start the pod by running
+
+.. code::bash
 
     podman pod start pod-name
 
-Add a container to the pod by running ::
+Add a container to the pod by running
+
+.. code:: bash
 
     podman create \
     --pod pod-name \
     --name container-name \
     image
 
-Start the container by running ::
+Start the container by running
+
+.. code:: bash
 
     podman start \
     container-name
@@ -64,32 +72,32 @@ Start the container by running ::
 Example
 ^^^^^^^
 
-::
+.. code:: bash
 
-    $ podman pod create tutorial
-    $ podman pod start tutorial
-    $ podman create \
+    podman pod create tutorial
+    podman pod start tutorial
+    podman create \
         --pod tutorial \
         --name hello \
         quay.io/podman/hello:latest
-    $ podman start \
+    podman start \
         --attach \
         hello
 
 outputs ::
 
     !... Hello Podman World ...!
-
-            .--"--.           
-        / -     - \         
-        / (O)   (O) \        
-    ~~~| -=(,Y,)=- |         
+    
+             .--"--.           
+           / -     - \         
+          / (O)   (O) \        
+       ~~~| -=(,Y,)=- |         
         .---. /`  \   |~~      
-    ~/  o  o \~~~~.----. ~~   
-    | =(X)= |~  / (O (O) \   
-    ~~~~~~~  ~| =(Y_)=-  |   
-    ~~~~    ~~~|   U      |~~ 
-
+     ~/  o  o \~~~~.----. ~~   
+      | =(X)= |~  / (O (O) \   
+       ~~~~~~~  ~| =(Y_)=-  |   
+      ~~~~    ~~~|   U      |~~ 
+    
     Project:   https://github.com/containers/podman
     Website:   https://podman.io
     Desktop:   https://podman-desktop.io
