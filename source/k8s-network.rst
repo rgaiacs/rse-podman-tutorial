@@ -24,7 +24,6 @@ Containers on the same Pod
         subgraph host[Host]
         browser
         network
-        pod
         end
 
         browser[Web browser] --> flask[Flask];
@@ -91,7 +90,7 @@ Containers on different pods
         classDef classNetwork stroke:black,stroke-dasharray: 5 5
         class network classNetwork;
 
-The container can be reached by another container if they are part of the same pod of if they are part of the same network.
+The container can be reached by another container from a different pod if both pods are part of the same network. This allows the container to be reached by another container using the name of the pod.
 
 Example
 ^^^^^^^
