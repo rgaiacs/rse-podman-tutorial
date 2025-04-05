@@ -19,7 +19,9 @@ Given a ``Dockerfile``, the container image can be created from ``Images > Build
 .. image:: ./img/podman-desktop-images-build-an-image.png
    :alt: Screenshot of Podman Desktop with the Images > Build an Image tab selected.
 
-Container image can also be created from the command line. ::
+Container image can also be created from the command line.
+
+.. code:: bash
 
     podman build \
     --tag registry/namespace/repository:tag \
@@ -50,7 +52,9 @@ Given the following ``Dockerfile``
 .. literalinclude:: examples/python0/Dockerfile
    :language: dockerfile
 
-Running ::
+Running
+
+.. code:: bash
 
     podman build \
     --tag my-tutorial/python:3.12 \
