@@ -8,16 +8,28 @@ Normally, we want to access the program running on the container from the host.
    :alt: Diagram of access container.
    :caption: Diagram of access container.
    
-    graph LR;
-        browser[Web browser] --> flask[Flask];
-
+    flowchart 
         subgraph pod[Pod]
-        flask
+        nginx
+        end
+
+        subgraph network[Network]
+        pod
         end
 
         subgraph host[Host]
         browser
+        network
+        pod
         end
+
+        browser[Web browser] --> nginx[NGINX];
+
+        classDef classPod fill:lightblue,stroke:blue
+        class pod classPod;
+
+        classDef classNetwork stroke:black,stroke-dasharray: 5 5
+        class network classNetwork;
 
 The container can expose some ports (for example, the port 80 to receive HTTP requests) and the exposed port can be mapped to a port in the host. This way, a request to the port in the host is passed to the container.
 
@@ -34,7 +46,6 @@ The container can expose some ports (for example, the port 80 to receive HTTP re
     .. code:: bash
 
         sysctl -w net.ipv4.ip_unprivileged_port_start=80
-    
 
 Example
 -------
