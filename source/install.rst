@@ -3,30 +3,43 @@ Install
 
 Visit `Installing Podman Desktop <https://podman-desktop.io/docs/installation>`_ section from the `Podman Desktop documentation <https://podman-desktop.io/docs/>`_ for the steps to install Podman Desktop on Windows, macOS, and GNU/Linux.
 
-Podman Desktop can manage remote Podman connections via SSH. On Windows and macOS, Podman Desktop is bundled with the `Podman machine <https://podman-desktop.io/docs/podman/creating-a-podman-machine>`_ but it is recommended to configure Podman on the machine you are using instead of use the default Podman machine.
+On Windows and macOS, Podman Desktop will, by default, create a `Podman machine <https://podman-desktop.io/docs/podman/creating-a-podman-machine>`_ because Windows and macOS cannot run containers natively.
+
+On Windows, you can use any `Windows Subsystem for Linux (WSL) <https://learn.microsoft.com/en-us/windows/wsl/>`_ to run Podman and have Podman Desktop managing Podman via SSH. The next section will provide more details for this.
 
 Configure Remote Access
 -----------------------
 
-1. Enable remote connection on Podman Desktop's settings.
-2. Generate a SSH key. ::
+1.  Enable remote connection on Podman Desktop's settings.
+2.  Generate a SSH key.
 
-    ssh-keygen -t ed25519
+    .. code:: bash
 
-3. Copy the SSH key to the remote machine.
-4. On the remote machine, enable Podman's socket. ::
+        ssh-keygen -t ed25519
 
-    sudo systemctl enable podman.socket
-    sudo systemctl start podman.socket
+3.  Copy the SSH key to the remote machine.
+4.  On the GNU/Linux remote machine, enable Podman's socket.
 
-5. On the remote machine, confirm that the Podman's socket is enabled. ::
+    .. code:: bash
 
-    systemctl status --user podman.socket
+        sudo systemctl enable podman.socket
+        sudo systemctl start podman.socket
 
-6. Add the connection to the remote Podman.
+5.  On the GNU/Linux remote machine, confirm that the Podman's socket is enabled.
 
-   On Windows, ::
+    .. code:: bash
 
-    podman system connection add baude --identity c:\Users\baude\.ssh\id_rsa ssh://192.168.122.1/run/user/1000/podman/podman.sock
+        systemctl status --user podman.socket
 
-   as described in `Podman Remote clients for macOS and Windows <https://github.com/containers/podman/blob/main/docs/tutorials/mac_win_client.md>`_.
+6.  Add the connection to the remote Podman.
+
+    On the Windows machine, use `PowerShell <https://learn.microsoft.com/en-us/powershell/>`_ to run
+
+    .. code:: powershell
+
+        podman system connection `
+        add $env:username `
+        --identity c:\Users\$env:username\.ssh\id_rsa `
+        ssh://$env:username@localhost:22/run/user/1000/podman/podman.sock
+
+    as described in `Podman Remote clients for macOS and Windows <https://github.com/containers/podman/blob/main/docs/tutorials/mac_win_client.md>`_.
