@@ -22,7 +22,9 @@ Podman supported the following Kubernetes kinds:
 Workflow
 --------
 
-Given a Kubernetes manifest file that describes a pod, the pod can be created by Podman by running ::
+Given a Kubernetes manifest file that describes a pod, the pod can be created by Podman by running
+
+.. code:: bash
 
     podman kube play file.yml
 
@@ -39,7 +41,9 @@ Given the following Kubernetes manifest file
    :language: yaml
    :caption: play.yml
 
-running ::
+running
+
+.. code:: bash
 
     podman kube play play.yml
 
