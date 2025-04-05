@@ -15,14 +15,16 @@ Podman Desktop is agnostic regarding the registry server and the authentication 
 .. image:: ./img/podman-desktop-settings-registries.png
    :alt: Screenshot of Podman Desktop with the Settings > Registries tab selected.
 
-Authentication can also be done from the command line. ::
+Authentication can also be done from the command line.
+
+.. code:: bash
 
     podman login registry
 
 Example
 ^^^^^^^
 
-::
+.. code:: bash
 
     podman login docker.io
 
@@ -40,7 +42,9 @@ Podman Desktop is agnostic regarding the registry server from where the containe
 .. image:: ./img/podman-desktop-images-pull-an-image.png
    :alt: Screenshot of Podman Desktop with the Images > Pull an Image tab selected.
 
-Pull an image can also be done from the command line. ::
+Pull an image can also be done from the command line.
+
+.. code:: bash
 
     podman pull registry/namespace/repository:tag
 
@@ -64,7 +68,7 @@ Pull an image can also be done from the command line. ::
 Example
 ^^^^^^^
 
-::
+.. code:: bash
 
     podman pull docker.io/debian:12.10-slim
 
