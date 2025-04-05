@@ -31,6 +31,80 @@ Normally, we want to access the program running on the container from the host.
         classDef classNetwork stroke:black,stroke-dasharray: 5 5
         class network classNetwork;
 
+.. important::
+
+    Because Windows and macOS cannot run containers natively, the network is more complex when working on Windows and macOS.
+
+    .. mermaid::
+        :align: center
+        :alt: Diagram of access container from Windows or macOS.
+        :caption: Diagram of access container from Windows or macOS.
+    
+        flowchart
+            subgraph pod[Pod]
+            nginx
+            end
+
+            subgraph network[Network]
+            pod
+            end
+
+            subgraph podman-machine[Podman Machine]
+            network
+            end
+
+            subgraph host[Windows or macOS]
+            browser
+            podman-machine
+            end
+
+            browser[Web browser] --> nginx[NGINX];
+
+            classDef classPod fill:lightblue,stroke:blue
+            class pod classPod;
+
+            classDef classNetwork fill:orange,stroke:darkorange,stroke:black,stroke-dasharray: 5 5
+            class network classNetwork;
+
+            classDef classPodmanMachine fill:orange,stroke:darkorange
+            class podman-machine classPodmanMachine;
+
+    It is easy to think that the container is hosted in a different device on the `local area network (LAN) <https://en.wikipedia.org/wiki/Local_area_network>`_.
+
+    .. mermaid::
+        :align: center
+        :alt: Diagram of access container from Windows or macOS over LAN.
+        :caption: Diagram of access container from Windows or macOS over LAN.
+    
+        flowchart LR
+            subgraph pod[Pod]
+            nginx
+            end
+
+            subgraph network[Network]
+            pod
+            end
+
+            subgraph podman-machine[Podman Machine]
+            network
+            end
+
+            subgraph host[Windows or macOS]
+            browser
+            end
+
+            browser[Web browser] --> router;
+            router --> nginx[NGINX];
+
+            classDef classPod fill:lightblue,stroke:blue
+            class pod classPod;
+
+            classDef classNetwork fill:orange,stroke:darkorange,stroke:black,stroke-dasharray: 5 5
+            class network classNetwork;
+
+            classDef classPodmanMachine fill:orange,stroke:darkorange
+            class podman-machine classPodmanMachine;
+
 The container can expose some ports (for example, the port 80 to receive HTTP requests) and the exposed port can be mapped to a port in the host. This way, a request to the port in the host is passed to the container.
 
 .. important::
@@ -39,13 +113,13 @@ The container can expose some ports (for example, the port 80 to receive HTTP re
 
     .. code:: bash
 
-        sysctl net.ipv4.ip_unprivileged_port_start=80
+        sudo sysctl net.ipv4.ip_unprivileged_port_start=80
 
     or **permanentily** make a specific port (for example, port 80) not privileged using
 
     .. code:: bash
 
-        sysctl -w net.ipv4.ip_unprivileged_port_start=80
+        sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
 
 Example
 -------
@@ -95,3 +169,62 @@ that is expected to return ::
     <p><em>Thank you for using nginx.</em></p>
     </body>
     </html>
+
+Windows Subsystem for Linux (WLS)
+---------------------------------
+
+Windows 10
+^^^^^^^^^^
+
+WSL uses a `NAT (Network Address Translation) <https://learn.microsoft.com/en-us/windows/wsl/networking#default-networking-mode-nat>`_ based architecture for networking. This allows the use of the `loopback <https://en.wikipedia.org/wiki/Loopback>`_ address from Windows to access the machine running Podman, for example
+
+.. code:: powershell
+
+    curl.exe http://localhost:8080
+
+or
+
+.. code:: powershell
+
+    curl.exe http://127.0.0.1:8080
+
+or
+
+.. code:: powershell
+
+    curl.exe http://[::1]:8080
+
+.. warning::
+
+    ``curl.exe http://127.0.0.1:8080`` should work but it fails when tested.
+
+It is also possible to use the IP address in the local area network (LAN) of the machine running Podman. First, discover the IP address.
+
+.. code:: powershell
+
+    wsl.exe hostname -I
+
+::
+
+    172.25.11.50
+
+.. important::
+
+    The IP address might change when the WSL machine restarts.
+
+.. note::
+
+    The IP address can be used in ``C:\Windows\System32\drivers\etc\hosts``.
+
+And use the IP address
+
+.. code:: powershell
+
+    curl.exe http://172.25.11.50:8080
+
+Windows 11
+^^^^^^^^^^
+
+.. important::
+
+    The new `Mirrored mode networking <https://learn.microsoft.com/en-us/windows/wsl/networking#mirrored-mode-networking>`_ is available on Windows 11 22H2 and higher.
