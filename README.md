@@ -4,16 +4,10 @@ In this tutorial to Podman and Podman Desktop, you will find recommendations on 
 
 ## Usage
 
-### Online
-
-Visit http://rse.git.gesis.org/podman/learn/podman-desktop/install.html.
-
-### Offline
-
 Run
 
 ```bash
-podman kube play --replace sphinx.yml 
+podman kube play --replace play.yml 
 ```
 
 and visit http://localhost:8000/.
