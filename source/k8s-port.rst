@@ -23,7 +23,18 @@ The container can expose some ports (for example, the port 80 to receive HTTP re
 
 .. important::
 
-    Because Podman run rootless, the host's privileged ports (TCP/IP port numbers below 1024) can not be used.
+    A `know shortcoming <https://github.com/containers/podman/blob/main/rootless.md>`_ of rootless is that the host's privileged ports (TCP/IP port numbers below 1024) can not be used. A workaround is to **temporarily** make a specific port (for example, port 80) not privileged using
+
+    .. code:: bash
+
+        sysctl net.ipv4.ip_unprivileged_port_start=80
+
+    or **permanentily** make a specific port (for example, port 80) not privileged using
+
+    .. code:: bash
+
+        sysctl -w net.ipv4.ip_unprivileged_port_start=80
+    
 
 Example
 -------
@@ -34,13 +45,17 @@ Given the following Kubernetes manifest file
    :language: yaml
    :caption: play.yml
 
-running ::
+running
+
+.. code:: bash
 
     podman kube play play.yml
 
 creates a pod named ``nginx1`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine`` and the port 8080 in the host is mapped to the port 80 in the container.
 
-The NGINX server can be tested with ::
+The NGINX server can be tested width
+
+.. code:: bash
 
     curl http://localhost:8080
 
