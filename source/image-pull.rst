@@ -3,6 +3,16 @@ Retrieving Images
 
 Container images can be retrieved from a registry server.
 
+.. important::
+
+    Podman enforces HTTPS. If your registry server does not use HTTPS, you will have to add an exception to ``/etc/containers/registries.conf``.
+
+    ..  code::
+
+        [[registry]]
+        location = 'my.registry.server.without.https'
+        insecure = true
+
 Authenticating with Registry Server
 -----------------------------------
 
