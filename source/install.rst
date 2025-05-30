@@ -10,14 +10,14 @@ On Windows, you can use any `Windows Subsystem for Linux (WSL) <https://learn.mi
 Configure Remote Access
 -----------------------
 
-1.  Enable remote connection on Podman Desktop's settings.
+1.  Enable remote connection on Podman Desktop's ``Settings``, ``Preferences``, ``Extension: Podman``.
 2.  Generate a SSH key.
 
     .. code:: bash
 
         ssh-keygen -t ed25519
 
-3.  Copy the SSH key to the remote machine.
+3.  Copy the public SSH key to the remote machine's ``~/.ssh/authorized_keys``.
 4.  On the GNU/Linux remote machine, enable Podman's socket.
 
     .. code:: bash
@@ -43,3 +43,11 @@ Configure Remote Access
         ssh://$env:username@localhost:22/run/user/1000/podman/podman.sock
 
     as described in `Podman Remote clients for macOS and Windows <https://github.com/containers/podman/blob/main/docs/tutorials/mac_win_client.md>`_.
+
+7.  Optionally, set the remote Podman as the default.
+
+    On the Windows machine, use `PowerShell <https://learn.microsoft.com/en-us/powershell/>`_ to run
+
+    .. code:: powershell
+
+        podman system connection default $env:username
