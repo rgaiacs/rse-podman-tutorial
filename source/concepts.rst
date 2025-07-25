@@ -49,7 +49,7 @@ Create a pod by running
 
 Start the pod by running
 
-.. code::bash
+.. code:: bash
 
     podman pod start pod-name
 

@@ -173,10 +173,16 @@ that is expected to return ::
 Windows Subsystem for Linux (WLS)
 ---------------------------------
 
-Windows 10
-^^^^^^^^^^
+.. important::
 
-WSL uses a `NAT (Network Address Translation) <https://learn.microsoft.com/en-us/windows/wsl/networking#default-networking-mode-nat>`_ based architecture for networking. This allows the use of the `loopback <https://en.wikipedia.org/wiki/Loopback>`_ address from Windows to access the machine running Podman, for example
+    `Windows 10 reached the end of support <https://support.microsoft.com/en-us/windows/windows-10-support-ends-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281>`_ on 14 October 14 2025.
+
+.. important::
+
+    The new `Mirrored mode networking <https://learn.microsoft.com/en-us/windows/wsl/networking#mirrored-mode-networking>`_ is available on Windows 11 22H2 and higher. Old versions uses a `NAT (Network Address Translation) <https://learn.microsoft.com/en-us/windows/wsl/networking#default-networking-mode-nat>`_ based architecture for networking.
+
+
+WSL allows the use of the `loopback <https://en.wikipedia.org/wiki/Loopback>`_ address from Windows to access the machine running Podman, for example
 
 .. code:: powershell
 
@@ -221,10 +227,3 @@ And use the IP address
 .. code:: powershell
 
     curl.exe http://172.25.11.50:8080
-
-Windows 11
-^^^^^^^^^^
-
-.. important::
-
-    The new `Mirrored mode networking <https://learn.microsoft.com/en-us/windows/wsl/networking#mirrored-mode-networking>`_ is available on Windows 11 22H2 and higher.

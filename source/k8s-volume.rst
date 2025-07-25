@@ -25,7 +25,7 @@ Example with HostPathVolumeSource
 
 .. WARNING::
 
-    Podman is not able to access files in a WSL2 machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. This feature was requested in Podman's GitHub project issue `17986 <https://github.com/containers/podman/issues/17986>`_ and `21813 <https://github.com/containers/podman/issues/21813>`_.
+    Podman is not able to access files in a `WSL`_ machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. This feature was requested in Podman's GitHub project issue `17986 <https://github.com/containers/podman/issues/17986>`_ and `21813 <https://github.com/containers/podman/issues/21813>`_.
 
 .. ATTENTION::
 
@@ -98,7 +98,7 @@ Example with HostPathVolumeSource
 
 .. WARNING::
 
-    Podman is not able to access files in a WSL2 machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. This feature was requested in Podman's GitHub project issue `17986 <https://github.com/containers/podman/issues/17986>`_ and `21813 <https://github.com/containers/podman/issues/21813>`_.
+    Podman is not able to access files in a `WSL`_ machine, for example ``\\wsl.localhost\Ubuntu\home\user\file``. This feature was requested in Podman's GitHub project issue `17986 <https://github.com/containers/podman/issues/17986>`_ and `21813 <https://github.com/containers/podman/issues/21813>`_.
 
 .. ATTENTION::
 
