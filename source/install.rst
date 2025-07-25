@@ -1,9 +1,9 @@
 Install
 =======
 
-Visit `Installing Podman Desktop <https://podman-desktop.io/docs/installation>`_ section from the `Podman Desktop documentation <https://podman-desktop.io/docs/>`_ for the steps to install `Podman Desktop`_` on Windows, macOS, and GNU/Linux.
+Visit `Installing Podman Desktop <https://podman-desktop.io/docs/installation>`_ section from the `Podman Desktop documentation <https://podman-desktop.io/docs/>`_ for the steps to install `Podman Desktop`_ on Windows, macOS, and GNU/Linux.
 
-On Windows and macOS, `Podman Desktop`_` will, by default, create a `Podman machine`_ because Windows and macOS cannot run containers natively.
+On Windows and macOS, `Podman Desktop`_ will, by default, create a `Podman machine`_ because Windows and macOS cannot run containers natively.
 
 On Windows, you can use any Windows Subsystem for Linux (`WSL`_) to run Podman and have Podman Desktop managing Podman via SSH. The next section will provide more details for this.
 
