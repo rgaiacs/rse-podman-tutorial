@@ -47,4 +47,5 @@ This tutorial will guide you on how to use Podman and Podman Desktop.
    production-with-podman
    production-with-k3s
    full-example
+   kind
    portainer
