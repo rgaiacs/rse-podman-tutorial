@@ -13,7 +13,7 @@ spec:
         - 0.0.0.0
         - /mnt/docs/source
         - /mnt/docs/build
-      image: docker-private.gesis.intra/rse/docker/images/sphinx-doc:2.3.0
+      image: ghcr.io/rgaiacs/sphinx-doc:main
       name: sphinx
       ports:
         - containerPort: 8000
