@@ -8,12 +8,6 @@ Podman Desktop Tutorial
 
 `Podman`_ is an open source container management tool similar to `Docker Engine`_. And `Podman Desktop`_ is open source client for Podman similar to `Docker Desktop`_.
 
-.. note::
-
-    If you have experience with Docker, you might want to jump to :doc:`full-example`.
-
-This tutorial will guide you on how to use Podman and Podman Desktop.
-
 ============================== =================================== ======================================
 Feature                        Podman                              Docker
 ============================== =================================== ======================================
@@ -24,11 +18,11 @@ Cost (GUI)                     Free                                US$9/user/mon
 Multi-container applications   Based on Kubernetes specification   Based on Docker Compose specification
 ============================== =================================== ======================================
 
+This tutorial will guide you on how to use Podman and Podman Desktop.
+
 .. note::
 
     If you have experience with Docker, you might want to jump to :doc:`full-example`.
-
-This tutorial will guide you on how to use Podman and Podman Desktop.
 
 .. toctree::
    :maxdepth: 2
