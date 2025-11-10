@@ -1,0 +1,29 @@
+[workspace]
+authors = ["Raniere Gaia Costa da Silva <Raniere.CostadaSilva@gesis.org>"]
+channels = ["conda-forge"]
+name = "rse-podman-tutorial"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+sphinx = ">=8.2.3,<9"
+sphinx-rtd-theme = ">=3.0.1,<4"
+sphinx-copybutton = ">=0.5.2,<0.6"
+sphinxcontrib-mermaid = ">=1.0.0,<2"
+
+[feature.autobuild.dependencies]
+sphinx-autobuild = ">=2024.10.3,<2025"
+
+[feature.autobuild.tasks]
+preview = { cmd = [
+    "sphinx-autobuild",
+    "--host",
+    "0.0.0.0",
+    "./source",
+    "./build"
+]}
+
+[environments]
+docs = ["autobuild"]
