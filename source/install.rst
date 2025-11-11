@@ -22,9 +22,9 @@ Configure Remote Access
 
 4.  On the GNU/Linux remote machine, start and enable the SSH server.
 
-5.  Copy the SSH key to ``~/.ssh/authorized_keys`` from the GNU/Linux remote machine.
+5.  Copy the SSH key to ``~/.ssh/authorized_keys`` of the GNU/Linux remote machine.
 
-6.  Test the SSH connection from the Windows machien to the GNU/Linux remote machine.
+6.  Test the SSH connection from the Windows machine to the GNU/Linux remote machine.
 
 7.  On the GNU/Linux remote machine, enable Podman's socket.
 
