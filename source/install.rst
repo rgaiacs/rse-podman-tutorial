@@ -12,7 +12,7 @@ Configure Remote Access
 
 1.  Enable remote connection on Podman Desktop's ``Settings``, ``Preferences``, ``Extension: Podman``.
 
-2.  Generate a SSH key on that you use, for example, the Windows machine.
+2.  Generate a SSH key on the machine that you use, for example, the Windows machine.
 
     .. code:: bash
 
@@ -22,9 +22,9 @@ Configure Remote Access
 
 4.  On the GNU/Linux remote machine, start and enable the SSH server.
 
-5.  Copy the SSH key to ``~/.ssh/authorized_keys`` of the GNU/Linux remote machine.
+5.  Copy the previously created SSH key to ``~/.ssh/authorized_keys`` of the GNU/Linux remote machine.
 
-6.  Test the SSH connection from the Windows machine to the GNU/Linux remote machine.
+6.  Test the SSH connection from the machine that you use to the GNU/Linux remote machine.
 
 7.  On the GNU/Linux remote machine, enable Podman's socket.
 
