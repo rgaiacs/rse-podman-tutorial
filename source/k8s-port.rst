@@ -109,17 +109,19 @@ The container can expose some ports (for example, the port 80 to receive HTTP re
 
 .. important::
 
-    A `know shortcoming <https://github.com/containers/podman/blob/main/rootless.md>`_ of rootless is that the host's privileged ports (TCP/IP port numbers below 1024) can not be used. A workaround is to **temporarily** make a specific port (for example, port 80) not privileged using
-
-    .. code:: bash
-
-        sudo sysctl net.ipv4.ip_unprivileged_port_start=80
-
-    or **permanentily** make a specific port (for example, port 80) not privileged using
+    A `know shortcoming <https://github.com/containers/podman/blob/main/rootless.md>`_ of rootless is that the host's privileged ports (TCP/IP port numbers below 1024) can not be used. A workaround is to **temporarily** make more ports (for example, port 80) not privileged using
 
     .. code:: bash
 
         sudo sysctl -w net.ipv4.ip_unprivileged_port_start=80
+
+    To make the change **permanent**, add
+
+    .. code::
+
+        net.ipv4.ip_unprivileged_port_start=80
+
+    to ``/etc/sysctl.d/1000-podman.conf``.
 
 Example
 -------
