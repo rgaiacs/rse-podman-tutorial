@@ -1,7 +1,7 @@
 Pod with Volume
 ===============
 
-Containers might need access to persistent data (for example configuration files, state files, and log files) at their start or after their termination. This can be accomplished by mounting a Volume to the container. Volumes can be of many types, including
+Containers might need access to persistent data (for example configuration files, state files, and log files) at their start or after their termination. This can be accomplished by mounting a volume to the container. Volumes can be of many types, including
 
 - `ConfigMapVolumeSource <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#configmapvolumesource-v1-core>`_
 - `EmptyDirVolumeSource <https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.32/#emptydirvolumesource-v1-core>`_
