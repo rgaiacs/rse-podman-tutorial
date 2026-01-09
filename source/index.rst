@@ -34,6 +34,7 @@ This tutorial will guide you on how to use Podman and Podman Desktop.
    image-build
    k8s-manifest
    k8s-port
+   traefik-proxy
    k8s-network
    k8s-volume
    k8s-secret
