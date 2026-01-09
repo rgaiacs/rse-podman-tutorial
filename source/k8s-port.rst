@@ -140,7 +140,7 @@ running
 
 creates a pod named ``nginx1`` with a container named ``nginx`` running the image ``docker.io/library/nginx:alpine`` and the port 8080 in the host is mapped to the port 80 in the container.
 
-The NGINX server can be tested width
+The NGINX server can be tested with
 
 .. code:: bash
 
